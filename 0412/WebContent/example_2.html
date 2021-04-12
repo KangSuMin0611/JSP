@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/0412/NewFile.jsp" method="post">
+		이름: <input type="text" name="name"><br>
+		암호: <input type="password" name="pwd"><br>
+		
+		성별: <input type="radio" name="gender" value="man" checked> 남자
+			 <input type="radio" name="gender" value="woman" > 여자
+<br>	
+		직업:<select size=1 name="job">
+			<option value="1"> 기타 </option>
+			<option value="2"> 학생 </option>
+			<option value="3"> 직장인 </option>
+			<option value="4"> 강사 </option>
+			<option value="5"> 백수 </option>
+	</select> 
+	<br>
+		
+		관심분야 :
+			<input type="checkbox" name=interest  value="it" >it
+			<input type="checkbox" name=interest value="sports" > 스포츠
+			<input type="checkbox" name=interest value="art"> 예술
+			<input type="checkbox" name=interest  value="Politics" > 정치
+			<input type="checkbox" name=interest  value="Economy"> 경제
+			<input type="checkbox" name=interest value="Culture" > 문화
+			<br>
+	
+	<input type="submit" value="전송">
+	<input type="reset" value="취소">			
+	
+	</form>
+</body>
+</html>
