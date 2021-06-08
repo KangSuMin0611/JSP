@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@page import = "java.sql.*" %>
-    <%@include file = "connect.jsp" %>
+	pageEncoding="EUC-KR"%>
+<%@page import="java.sql.*"%>
+<%@include file="connect.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,18 +10,28 @@
 </head>
 <body>
 
-<%
+	<%
 Statement stmt = conn.createStatement();
 String sql = "select * from member";
 
 ResultSet rs = stmt.executeQuery(sql);
 
 while(rs.next()){
-	out.print(rs.getString(1) + " | ");
-	out.print(rs.getString(2) + " | ");
-	out.print(rs.getString(3) + " | ");
-	out.print(rs.getString(4) + " | ");
-	out.print(rs.getString(5) + "<br>");
+%>
+
+	<table border="1">
+		<tr>
+			<td><%=rs.getString(1) %></td>
+			<td><%=rs.getString(2) %></td>
+			<td><%=rs.getString(3) %></td>
+			<td><%=rs.getString(4) %></td>
+			<td><%=rs.getString(5) %></td>
+		</tr>
+	</table>
+
+
+
+	<% 
 }
 %>
 
