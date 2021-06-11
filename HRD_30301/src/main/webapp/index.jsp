@@ -3,11 +3,8 @@
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("utf-8");
-
 String section = request.getParameter("section");
-if (section == null) {
-	section = "";
-}
+section = (section == null) ? "" : section;
 %>
 <html>
 <head>
@@ -31,7 +28,7 @@ if (section == null) {
 		break;
 		case "shopsales":
 		%>
-		<jsp:include page="c_select_by_shop_jsp" />
+		<jsp:include page="c_select_by_shop.jsp" />
 		<%
 		break;
 		case "productsales":

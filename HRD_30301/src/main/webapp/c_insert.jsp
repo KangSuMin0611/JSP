@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	확인페이지
+	이페이지는 c_insert 페이지 입니다.
 </body>
 </html>
