@@ -10,14 +10,14 @@
 </head>
 <body>
 	<%
-		Connection conn = Util.getConnection();
-		
-		if(conn!=null){
-			out.print("연결완료<br>");
-		}
-		else{
-			out.print("연결실패<br>");
-		}
-	%> <!-- 미완성 -->
+	Connection conn = Util.getConnection();
+
+	if (conn != null) {
+		out.print("연결완료<br>");
+	} else {
+		out.print("연결실패<br>");
+	}
+	%>
+	<!-- 연결 잘되는지 체크하는 페이지 시험엔 없음 -->
 </body>
 </html>

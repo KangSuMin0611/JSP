@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
+<%@ page import="java.sql.*"%>
+<%@ include file="dbconnect.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-	이페이지는 c_select_by_shop 패이지 입니다.
+	<%
+	String sql = "select * from tbl_shop_01";
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+
+	ResultSet rs = pstmt.executeQuery();
+	%>
+
+	<table border=1>
+		<tr>
+			<th>상점코드</th>
+			<th>상점명</th>
+			<th>매장별 판매액</th>
+		</tr>
+		<%
+		while (rs.next()) {
+		%>
+		<tr>
+			<td><%=rs.getString(1)%></td>
+
+			<td><%=rs.getString(2)%></td>
+
+
+		</tr>
+		<%
+		}
+		%>
+	</table>
+	<%
+	conn.close();
+	%>
 </body>
 </html>

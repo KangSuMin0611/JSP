@@ -1,12 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ include file="dbconnect.jsp"%>
+<%
+request.setCharacterEncoding("EUC-KR");
+%>
+<%
+try {
+	PreparedStatement pstmt = conn.prepareStatement("select max(saleno)+1 as saleno from tbl_salelist_01");
+	ResultSet rs = pstmt.executeQuery();
+	rs.next();
+	String saleno = rs.getString("saleno");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title</title>
 </head>
 <body>
-	ì´í˜ì´ì§€ëŠ” c_insert í˜ì´ì§€ ì…ë‹ˆë‹¤.
+	<!-- h3¿ŞÂÊÀ¸·Î µÇ¾îÀÖÀ½ °íÄ¡±â -->
+	<h3>ÆÇ¸Åµî·Ï</h3>
+	<form action="c_insert_post2.jsp" method="post">
+		<input type="hidden" name="task" value="insert">
+		<table border=1>
+			<tr>
+				<td>ºñ¹øÈ£</td>
+				<td><input type="text" name="saleno" value="<%=saleno%>"
+					required></td>
+			</tr>
+
+			<tr>
+				<td>»óÇ°ÄÚµå</td>
+				<td><input type="text" name="pcode" required></td>
+			</tr>
+
+			<tr>
+				<td>ÆÇ¸Å³¯Â¥</td>
+				<td><input type="date" name="saledate" required></td>
+			</tr>
+
+			<tr>
+				<td>¸ÅÀåÄÚµå</td>
+				<td><input type="text" name="scode" required></td>
+			</tr>
+
+			<tr>
+				<td>ÆÇ¸Å¼ö·®</td>
+				<td><input type="text" name="amount" required></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="Àü¼Û">
+					<input type="reset" value="´Ù½Ã¾²±â"></td>
+			</tr>
+		</table>
+	</form>
+	<%
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	%>
 </body>
 </html>
