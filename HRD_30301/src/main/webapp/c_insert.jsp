@@ -14,43 +14,40 @@ try {
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title</title>
 </head>
 <body>
-	<!-- h3왼쪽으로 되어있음 고치기 -->
 	<h3>판매등록</h3>
-	<form action="c_insert_post2.jsp" method="post">
+	<form name="form1" action="c_insert_post2.jsp" method="post">
 		<input type="hidden" name="task" value="insert">
 		<table border=1>
 			<tr>
 				<td>비번호</td>
-				<td><input type="text" name="saleno" value="<%=saleno%>"
-					required></td>
+				<td><input type="text" name="saleno" value="<%=saleno%>"></td>
 			</tr>
 
 			<tr>
 				<td>상품코드</td>
-				<td><input type="text" name="pcode" required></td>
+				<td><input type="text" name="pcode"></td>
 			</tr>
 
 			<tr>
 				<td>판매날짜</td>
-				<td><input type="date" name="saledate" required></td>
+				<td><input type="date" name="saledate"></td>
 			</tr>
 
 			<tr>
 				<td>매장코드</td>
-				<td><input type="text" name="scode" required></td>
+				<td><input type="text" name="scode"></td>
 			</tr>
 
 			<tr>
 				<td>판매수량</td>
-				<td><input type="text" name="amount" required></td>
+				<td><input type="text" name="amount"></td>
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="전송">
+				<td colspan="2" align="center">
+					<input type="button" value="전송" onclick="subm()">
 					<input type="reset" value="다시쓰기"></td>
 			</tr>
 		</table>
@@ -60,5 +57,13 @@ try {
 	e.printStackTrace();
 	}
 	%>
+	<script>
+		function subm() {
+			if(form1.saleno.value==''){
+				alert("비번호가 입력되지 않았습니다.");
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
