@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>매장별판매액</h2>
 	<%
 	try {
 		String sql = "select s.scode 매장코드, s.sname 매장이름, sum(cost*amount) 매장별판매액 from tbl_shop_01 s, tbl_salelist_01 sl, tbl_product_01 p where sl.scode=s.scode and sl.pcode=p.pcode group by s.scode, s.sname order by s.scode";
@@ -28,11 +29,11 @@
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
 			<td><%=rs.getString(3)%></td>
-			</tr>
-			<%
-			}
-			%>
-		
+		</tr>
+		<%
+		}
+		%>
+
 	</table>
 	<%
 	} catch (Exception e) {

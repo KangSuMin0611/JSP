@@ -32,7 +32,7 @@ try {
 
 			<tr>
 				<td>판매날짜</td>
-				<td><input type="date" name="saledate"></td>
+				<td><input type="date" name="salesdate"></td>
 			</tr>
 
 			<tr>
@@ -46,9 +46,9 @@ try {
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center">
-					<input type="button" value="전송" onclick="subm()">
-					<input type="reset" value="다시쓰기"></td>
+				<td colspan="2" align="center"><input type="button" value="등록"
+					onclick="subm()"> <input type="reset" value="다시쓰기">
+				</td>
 			</tr>
 		</table>
 	</form>
@@ -59,10 +59,29 @@ try {
 	%>
 	<script>
 		function subm() {
-			if(form1.saleno.value==''){
+			if (form1.saleno.value == '') { /* 여기 유효성검사 if문 */
 				alert("비번호가 입력되지 않았습니다.");
+				form1.saleno.focus();
+				return false;
+			} else if (form1.pcode.value == '') {
+				alert("상품코드가 입력되지 않았습니다.")
+				form1.pcode.focus();
+				return false;
+			} else if (form1.salesdate.value == '') {
+				alert("판매일자가 입력되지 않았습니다.")
+				form1.salesdate.focus();
+				return false;
+			} else if (form1.scode.value == '') {
+				alert("매장코드가 입력되지 않았습니다.")
+				form1.scode.focus();
+				return false;
+			} else if (form1.amount.value == '') {
+				alert("수량이 입력되지 않았습니다.")
+				form1.amount.focus();
 				return false;
 			}
+			alert("제대로 입력되었습니다.");
+			document.form1.submit();
 		}
 	</script>
 </body>
