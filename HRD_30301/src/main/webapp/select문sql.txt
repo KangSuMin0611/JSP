@@ -1,5 +1,0 @@
-select s.saleno, p.pcode, to_char(saledate,'yyyy-mm-dd'), s.scode, p.name , s.amount, (cost*amount) from tbl_salelist_01 s, tbl_product_01 p where s.pcode = p.pcode and name like '아메%'
-
-select s.saleno, p.pcode, to_char(saledate,'yyyy-mm-dd'), s.scode, p.name , s.amount, (cost*amount) from tbl_salelist_01 s, tbl_product_01 p where s.pcode = p.pcode and saledate>=to_date('2021-07-01','yyyy-mm-dd') and saledate<=to_date('2021-07-07','yyyy-mm-dd')
-
-select s.saleno, p.pcode, to_char(saledate,'yyyy-mm-dd'), s.scode, p.name , s.amount, (cost*amount) from tbl_salelist_01 s, tbl_product_01 p where s.pcode = p.pcode and saleno=10007;
